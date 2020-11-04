@@ -66,7 +66,7 @@ const Registration = () =>{
             {/* End of Sign-in and Register Links */}
           </form>
         </div>
-        <div className="registration-elements-1">
+        <div className="registration-elements">
           <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="" width="244" height="244" className="j9NuTc TrZEUc"></img>
         </div>
       </div>

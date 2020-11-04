@@ -1,10 +1,10 @@
 @import './colors.scss';
 
 * {
-  // margin: 0;
-  // padding: 0;
-  // background: $dark-mode-background;
-  // color: $white-text-color;
+  margin: 0;
+  padding: 0;
+  background: $dark-mode-background;
+  color: $white-text-color;
 }
 
 .registration-container {
@@ -18,6 +18,7 @@
 .registration-card-wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: yellow;
   margin: auto;
   padding: 20px;
@@ -27,10 +28,18 @@
   border: 2px solid $card-border-color;
 
   .registration-elements {
+    flex: 3;
+    padding: 20px;
+    box-sizing: border-box;
+    // flex-basis: 45%;
+    background-color: yellowgreen;
+  }
+
+  .registration-elements-1 {
     flex: 1;
     padding: 20px;
     box-sizing: border-box;
-    flex-basis: 45%;
+    // flex-basis: 45%;
     background-color: yellowgreen;
   }
 }
@@ -45,3 +54,7 @@
     flex-basis: 30%;
   }
 }
+
+// .manage-form-elemenets {
+//   max-width: 150px;
+// }
