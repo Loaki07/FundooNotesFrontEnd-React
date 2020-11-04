@@ -1,0 +1,47 @@
+@import './colors.scss';
+
+* {
+  // margin: 0;
+  // padding: 0;
+  // background: $dark-mode-background;
+  // color: $white-text-color;
+}
+
+.registration-container {
+  height: 100vh;
+  border: 10px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.registration-card-wrapper {
+  display: flex;
+  justify-content: space-between;
+  background-color: yellow;
+  margin: auto;
+  padding: 20px;
+  max-height: 500px;
+  max-width: 700px;
+  border-radius: 5px;
+  border: 2px solid $card-border-color;
+
+  .registration-elements {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-basis: 45%;
+    background-color: yellowgreen;
+  }
+}
+
+.divide-row {
+  // display: flex;
+  // justify-content: space-between;
+  max-width: 350px;
+  
+  column-fields {
+    flex: 1;
+    flex-basis: 30%;
+  }
+}
