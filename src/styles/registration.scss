@@ -3,8 +3,8 @@
 * {
   // margin: 0;
   // padding: 0;
-  // background: $dark-mode-background;
-  // color: $white-text-color;
+  background: $dark-mode-background;
+  color: $white-text-color;
 }
 
 .registration-container {
@@ -19,7 +19,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: yellow;
+  // background-color: yellow;
   margin: auto;
   padding: 20px;
   max-height: 500px;
@@ -31,16 +31,14 @@
     flex: 3;
     padding: 20px;
     box-sizing: border-box;
-    // flex-basis: 45%;
-    background-color: yellowgreen;
+    // background-color: yellowgreen;
   }
 
   .registration-elements-1 {
     flex: 1;
     padding: 20px;
     box-sizing: border-box;
-    // flex-basis: 45%;
-    background-color: yellowgreen;
+    // background-color: yellowgreen;
   }
 }
 
@@ -60,4 +58,25 @@
 
 .reg-right-flex {
   text-align: right;
+}
+
+.reg-header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.reg-sub-header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.reg-small-padding {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
