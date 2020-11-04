@@ -1,10 +1,10 @@
 @import './colors.scss';
 
 * {
-  margin: 0;
-  padding: 0;
-  background: $dark-mode-background;
-  color: $white-text-color;
+  // margin: 0;
+  // padding: 0;
+  // background: $dark-mode-background;
+  // color: $white-text-color;
 }
 
 .registration-container {
@@ -45,16 +45,19 @@
 }
 
 .divide-row {
-  // display: flex;
-  // justify-content: space-between;
-  max-width: 350px;
-  
-  column-fields {
-    flex: 1;
-    flex-basis: 30%;
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-// .manage-form-elemenets {
-//   max-width: 150px;
-// }
+.reg-form-input {
+  width: 90%;
+}
+
+.reg-form-input-username {
+  width: 95%;
+}
+
+.reg-right-flex {
+  text-align: right;
+}
