@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import ColoredFundooHeader from './coloredFundoo.jsx'
-import '../styles/resetPassword.scss'
-import UserApis from "../services/UserApis"
+import ColoredFundooHeader from '../utility/coloredFundoo.jsx'
+import '../../styles/resetPassword.scss'
+import UserApis from "../../services/UserApis"
 const { resetPassword } = new UserApis();
 
 const ResetPassword = () =>{

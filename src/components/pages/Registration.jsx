@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import ColoredFundooHeader from './coloredFundoo.jsx'
-import '../styles/registration.scss'
-import UserApis from "../services/UserApis"
+import ColoredFundooHeader from '../utility/coloredFundoo.jsx'
+import '../../styles/registration.scss'
+import UserApis from "../../services/UserApis"
 const { registerNewUser } = new UserApis();
 
 const Registration = () =>{
