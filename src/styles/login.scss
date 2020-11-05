@@ -18,7 +18,7 @@
 
 .login-card-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-center;
   align-items: center;
   // background-color: yellow;
   margin: auto;
@@ -27,4 +27,16 @@
   max-width: 700px;
   border-radius: 5px;
   border: 2px solid $card-border-color;
+
+  .login-form {
+    width: 300px;
+  }
+}
+
+.login-sub-header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  font-weight: lighter;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }

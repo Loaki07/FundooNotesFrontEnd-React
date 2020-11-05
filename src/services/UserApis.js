@@ -33,7 +33,7 @@ class UserApis {
 
   resetPassword = async (data, token) => {
     return axios
-      .post(process.env.REACT_APP_FUNDOO_API_URL + 'resetpassowd' + token, data)
+      .put(process.env.REACT_APP_FUNDOO_API_URL + 'resetpassowd' + token, data)
       .then((res) => res.data)
       .catch((error) => error);
   };

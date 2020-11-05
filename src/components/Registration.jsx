@@ -81,7 +81,7 @@ const Registration = () =>{
               </div>
               <div className="form-group float-right">
                 <a href="/" className="btn btn-primary" onClick={handleSubmit} >Next</a>
-                </div>
+              </div>
               <div className="clearfix"></div>
             </div>
             {/* End of Sign-in and Register Links */}
