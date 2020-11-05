@@ -30,27 +30,27 @@ const Registration = () =>{
             {/* First/Last Name Section */}
             <div className="divide-row d-flex justify-content-between">
               <div className="form-group reg-left-flex">
-                <input placeholder="First name" className="form-control reg-form-input" name="firstName" value={state.firstName} onChange={handleChange} autoComplete="off" ></input>
+                <input type="text" placeholder="First name" className="form-control reg-form-input" name="firstName" value={state.firstName} onChange={handleChange} autoComplete="off" ></input>
               </div>
               <div className="form-group reg-right-flex">
-                <input placeholder="Last name" className="form-control reg-form-input" name="lastName" value={state.lastName} onChange={handleChange} autoComplete="off" ></input>
+                <input type="text" placeholder="Last name" className="form-control reg-form-input" name="lastName" value={state.lastName} onChange={handleChange} autoComplete="off" ></input>
               </div>
             </div>
             {/*End First/Last Name Section */}
 
             {/* EmailId/Username Section */}
             <div className="form-group names-fields">
-              <input placeholder="Username" className="form-control reg-form-input-username" name="emailId" value={state.emailId} onChange={handleChange} autoComplete="off" ></input>
+              <input type="email" placeholder="Username" className="form-control reg-form-input-username" name="emailId" value={state.emailId} onChange={handleChange} autoComplete="off" ></input>
             </div>
             {/* End EmailId/Username Section */}
 
             {/* Password Section */}
             <div className="divide-row d-flex justify-content-between">
               <div className="form-group reg-left-flex">
-                <input placeholder="Password" className="form-control reg-form-input" name="password" value={state.password} onChange={handleChange} autoComplete="off" ></input>
+                <input type="password" placeholder="Password" className="form-control reg-form-input" name="password" value={state.password} onChange={handleChange} autoComplete="off" ></input>
               </div>
               <div className="form-group reg-right-flex">
-                <input placeholder="Confirm" className="form-control reg-form-input" name="confirm" value={state.confirm} onChange={handleChange} autoComplete="off" ></input>
+                <input type="password" placeholder="Confirm" className="form-control reg-form-input" name="confirm" value={state.confirm} onChange={handleChange} autoComplete="off" ></input>
               </div>
             </div>
             <div className="reg-form-input reg-small-padding">
