@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import ColoredFundooHeader from './coloredFundoo.jsx'
 import '../styles/registration.scss'
 import UserApis from "../services/UserApis"
@@ -11,7 +11,8 @@ const Registration = () =>{
     lastName: "",
     emailId: "",
     password: "",
-    confirm: ""
+    confirm: "",
+    loading: false
   })
 
   const handleChange = (event) =>{
@@ -20,6 +21,7 @@ const Registration = () =>{
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setState({...state, loading: true});
     const registerUserObject = {
       firstName: state.firstName,
       lastName: state.lastName,
@@ -27,6 +29,7 @@ const Registration = () =>{
       password: state.password
     }
     const result = await registerNewUser(registerUserObject);
+    setState({...state, loading: false});
     console.log(result);
   }
 
