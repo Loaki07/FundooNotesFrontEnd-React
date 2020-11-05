@@ -1,15 +1,9 @@
 @import './colors.scss';
-
-* {
-  // margin: 0;
-  // padding: 0;
-  background: $dark-mode-background;
-  color: $white-text-color;
-}
+@import './setOverall.scss';
 
 .registration-container {
   height: 100vh;
-  border: 10px solid red;
+  // border: 10px solid red;
   display: flex;
   align-items: center;
   justify-content: center;
