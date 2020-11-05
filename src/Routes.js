@@ -13,9 +13,9 @@ function Routes() {
       <Switch>
         <Route exact path="/" component={SignIn} />
         <Route path="/register" component={Registration} />
-        <Route path="/test-page" component={TestPage} />
         <Route path="/forgot-password" component={ForgotPassword} />
         <Route path="/reset-password" component={ResetPassword} />
+        <Route path="/test-page" component={TestPage} />
         <Route component={ErrorPage} />
       </Switch>
     </Router>
