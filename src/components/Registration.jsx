@@ -1,6 +1,8 @@
 import React, { Fragment, useState } from 'react'
 import ColoredFundooHeader from './coloredFundoo.jsx'
 import '../styles/registration.scss'
+import UserApis from "../services/UserApis"
+const {registerNewUser} = new UserApis();
 
 const Registration = () =>{
 
@@ -14,7 +16,18 @@ const Registration = () =>{
 
   const handleChange = (event) =>{
     setState({ ...state, [event.target.name]: event.target.value})
-    console.log(state);
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const registerUserObject = {
+      firstName: state.firstName,
+      lastName: state.lastName,
+      emailId: state.emailId,
+      password: state.password
+    }
+    const result = await registerNewUser(registerUserObject);
+    console.log(result);
   }
 
   return (
@@ -64,7 +77,7 @@ const Registration = () =>{
                 <a href="/" className="btn btn-primary" >Sign in instead</a>
               </div>
               <div className="form-group float-right">
-                <a href="/" className="btn btn-primary" >Next</a>
+                <a href="/" className="btn btn-primary" onClick={handleSubmit} >Next</a>
                 </div>
               <div className="clearfix"></div>
             </div>

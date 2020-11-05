@@ -8,21 +8,21 @@ class UserApis {
     return axios
       .post(process.env.REACT_APP_FUNDOO_API_URL + 'register', data)
       .then((res) => res.data)
-      .catch((error) => console.log(error));
+      .catch((error) => error);
   };
 
   signIn = async (data) => {
     return axios
       .post(process.env.REACT_APP_FUNDOO_API_URL + 'login', data)
       .then((res) => res.data)
-      .catch((error) => console.log(error));
+      .catch((error) => error);
   };
 
-  signIn = async () => {
+  homepage = async () => {
     return axios
       .get(process.env.REACT_APP_FUNDOO_API_URL)
       .then((res) => res.data)
-      .catch((error) => console.log(error));
+      .catch((error) => error);
   };
 }
 
