@@ -4,6 +4,8 @@ import Registration from './components/Registration.jsx';
 import SignIn from './components/SignIn.jsx';
 import TestPage from './components/test-page.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
+import ForgotPassword from './components/ForgotPassword.jsx';
+import ResetPassword from './components/ResetPassword.jsx';
 
 function Routes() {
   return (
@@ -12,6 +14,8 @@ function Routes() {
         <Route exact path="/" component={SignIn} />
         <Route path="/register" component={Registration} />
         <Route path="/test-page" component={TestPage} />
+        <Route path="/forgot-password" component={ForgotPassword} />
+        <Route path="/reset-password" component={ResetPassword} />
         <Route component={ErrorPage} />
       </Switch>
     </Router>
