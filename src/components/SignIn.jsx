@@ -18,13 +18,13 @@ const SignIn = () =>{
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setState({...state, loading: true});
+    setState({ ...state, loading: true});
     const loginUserObject = {
       emailId: state.emailId,
       password: state.password
     }
     const result = await signIn(loginUserObject);
-    setState({...state, loading: false});
+    setState({ ...state, loading: false});
     console.log(result);
   }
 
