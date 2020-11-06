@@ -163,7 +163,7 @@ const Registration = () =>{
                       autoComplete="off" 
                     ></Field>
                     <ErrorMessage 
-                      name="password" 
+                      name="confirm" 
                       component={errorMessages} 
                     ></ErrorMessage>
                   </div>
