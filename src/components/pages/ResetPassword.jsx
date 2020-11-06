@@ -1,23 +1,41 @@
 import React, {useState} from 'react'
 import ColoredFundooHeader from '../utility/coloredFundoo.jsx'
+import errorMessages from '../utility/errorMessages.jsx'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+import * as Yup from 'yup'
 import '../../styles/resetPassword.scss'
 import UserApis from "../../services/UserApis"
 const { resetPassword } = new UserApis();
 
-const ResetPassword = () =>{
+const initialValues = {
+  password: "",
+  confirm: "",
+}
 
+const validationSchema = Yup.object().shape({
+  password: Yup.string()
+               .min(6, 'Minimum 6 characters required!')
+               .required('Required!'),
+  confirm:  Yup.string()
+               .oneOf(
+                 [Yup.ref('password'), null],
+                  'Passwords do not match',
+                  )
+               .required('Required!'),
+})
+
+const ResetPassword = () =>{
   const [state, setState] = useState({
     password: "",
     confirm: "",
     loading: false
   })
 
-  const handleChange = (event) =>{
+  const handleFormChange = (event) =>{
     setState({ ...state, [event.target.name]: event.target.value})
   }
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleFormSubmit = async (values) => {
     setState({ ...state, loading: true});
     const forgotPasswordUserObject = {
       password: state.password,
@@ -25,35 +43,75 @@ const ResetPassword = () =>{
     const result = await resetPassword(forgotPasswordUserObject);
     setState({ ...state, loading: false});
     console.log(result);
+    console.log(state);
   }
 
   return (
-    <div className="reset-password-container">
-      <div className="reset-password-card-wrapper">
-        <form className="reset-password-form">
-          <div className="text-center reset-password-header">
-            <ColoredFundooHeader />
+    <Formik 
+      initialValues= {initialValues} 
+      validationSchema={validationSchema}
+      onSubmit={handleFormSubmit}
+    >
+      {({ handleSubmit, handleChange, values, handleBlur })=> (
+        <div className="reset-password-container">
+          <div className="reset-password-card-wrapper">
+            <Form className="reset-password-form">
+              <div className="text-center reset-password-header">
+                <ColoredFundooHeader />
+              </div>
+              <div className="text-center reset-password-sub-header">
+                Reset Password
+              </div>
+              <div className="form-group text-left">
+                <small className="reset-password-small">
+                  Enter New Password
+                </small>
+              </div>
+              <div className="form-group">
+                <Field 
+                  type="password" 
+                  placeholder="New Password" 
+                  className="form-control" 
+                  name="password" 
+                  value={values.password} 
+                  onInput={handleChange}
+                  onChange={handleFormChange}  
+                  autoComplete="off" 
+                ></Field>
+                <ErrorMessage 
+                  name="password" 
+                  component={errorMessages} 
+                ></ErrorMessage>
+              </div>
+              <div className="form-group">
+                <Field 
+                  type="password" 
+                  placeholder="Confirm" 
+                  className="form-control" 
+                  name="confirm" 
+                  value={values.confirm} 
+                  onInput={handleChange}
+                  onChange={handleFormChange}
+                  autoComplete="off" 
+                ></Field>
+                <ErrorMessage 
+                  name="confirm" 
+                  component={errorMessages} 
+                ></ErrorMessage>
+              </div>
+              <div className="form-group">
+                <a 
+                  href="/" 
+                  type="submit"
+                  className="btn btn-primary" 
+                  onClick={handleSubmit} 
+                >Reset Password</a>
+              </div>
+            </Form>
           </div>
-          <div className="text-center reset-password-sub-header">
-            Reset Password
-          </div>
-          <div className="form-group text-left">
-            <small className="reset-password-small">
-              Enter New Password
-            </small>
-          </div>
-          <div className="form-group">
-            <input type="password" placeholder="New Password" className="form-control" name="password" value={state.password} onChange={handleChange} autoComplete="off" ></input>
-          </div>
-          <div className="form-group">
-            <input type="password" placeholder="Confirm" className="form-control" name="confirm" value={state.confirm} onChange={handleChange} autoComplete="off" ></input>
-          </div>
-          <div className="form-group">
-            <a href="/" className="btn btn-primary" onClick={handleSubmit} >Reset Password</a>
-          </div>
-        </form>
-      </div>
-    </div>
+        </div>
+      )}
+    </Formik>
   )
 }
 
