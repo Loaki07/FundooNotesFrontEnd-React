@@ -74,7 +74,7 @@ const Registration = () =>{
       validationSchema={validationSchema}
       onSubmit={handleFormSubmit}
     >
-      {({ handleSubmit, handleChange, values, handleBlur })=> (
+      {({ handleSubmit, handleChange, values, handleBlur, errors, touched })=> (
         <div className="registration-container">
           <div className="registration-card-wrapper">
             <div className="registration-elements">
