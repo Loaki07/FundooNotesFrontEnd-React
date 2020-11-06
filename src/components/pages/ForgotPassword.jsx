@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import ColoredFundooHeader from '../utility/coloredFundoo.jsx'
 import '../../styles/forgotPassword.scss'
 import UserApis from "../../services/UserApis"
-import { Formik } from 'formik'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 const { forgotPassword } = new UserApis();
 
@@ -26,28 +26,26 @@ const ForgotPassword = () =>{
     setState({ ...state, [event.target.name]: event.target.value})
   }
 
-  const handleFormSubmit = (values) => {
+  const handleFormSubmit = async (values) => {
     setState({ ...state, loading: true});
     const forgotPasswordUserObject = {
       emailId: state.emailId,
     }
-    // const result = await forgotPassword(forgotPasswordUserObject);
+    const result = await forgotPassword(forgotPasswordUserObject);
     setState({ ...state, loading: false});
-    console.log(state);
-    // console.log(result);
-    console.log(values);
+    console.log(result);
   }
 
-  return (
+    return (
     <Formik 
       initialValues= {initialValues} 
       validationSchema={validationSchema}
       onSubmit={handleFormSubmit}
     >
-      {({ handleSubmit, handleChange, values, handleBlur, touched, errors })=> (
+      {({ handleSubmit, handleChange, values, handleBlur })=> (
         <div className="forgot-password-container">
         <div className="forgot-password-card-wrapper">
-          <form className="forgot-password-form">
+          <Form className="forgot-password-form">
             <div className="text-center forgot-password-header">
               <ColoredFundooHeader />
             </div>
@@ -60,7 +58,7 @@ const ForgotPassword = () =>{
               </small>
             </div>
             <div className="form-group">
-              <input 
+              <Field 
                 type="email" 
                 placeholder="Email" 
                 className="form-control" 
@@ -68,16 +66,20 @@ const ForgotPassword = () =>{
                 value={values.emailId} 
                 onInput={handleChange}
                 onChange={handleFormChange} 
-                onBlur={handleBlur} 
-                autoComplete="off" ></input>
-              { errors.emailId && touched.emailId ? (
-                <div className="forgot-password-error">{errors.emailId}</div> 
-              ) : null}
+                // onBlur={handleBlur} 
+                autoComplete="off" ></Field>
+                <ErrorMessage name="emailId"></ErrorMessage>
             </div>
             <div className="form-group">
-              <a href="/" type="submit" className="btn btn-primary" onClick={handleSubmit} >Receive Reset Password Link</a>
+              <a 
+                href="/" 
+                type="submit" 
+                className="btn btn-primary" 
+                onClick={handleSubmit} 
+                >
+                  Receive Reset Password Link</a>
             </div>
-          </form>
+          </Form>
         </div>
       </div>
       )} 
