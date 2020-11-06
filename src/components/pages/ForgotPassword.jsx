@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import ColoredFundooHeader from '../utility/coloredFundoo.jsx'
-import errorMEssages from '../utility/errorMessages.jsx'
+import errorMessages from '../utility/errorMessages.jsx'
 import '../../styles/forgotPassword.scss'
 import UserApis from "../../services/UserApis"
 import { Formik, Form, Field, ErrorMessage } from 'formik'
@@ -71,8 +71,8 @@ const ForgotPassword = () =>{
                 autoComplete="off" ></Field>
                 <ErrorMessage 
                   name="emailId" 
-                  component={errorMEssages} 
-                  ></ErrorMessage>
+                  component={errorMessages} 
+                ></ErrorMessage>
             </div>
             <div className="form-group">
               <a 
