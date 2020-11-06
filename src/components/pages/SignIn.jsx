@@ -1,23 +1,39 @@
 import React, {useState} from 'react'
 import ColoredFundooHeader from '../utility/coloredFundoo.jsx'
+import errorMessages from '../utility/errorMessages.jsx'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+import * as Yup from 'yup'
 import '../../styles/login.scss'
 import UserApis from "../../services/UserApis"
 const { signIn } = new UserApis();
 
-const SignIn = () =>{
+const initialValues = {
+  emailId: "",
+  password: ""
+}
 
+const validationSchema = Yup.object().shape({
+  emailId: Yup.string()
+              .email("Invalid email format")
+              .required("Required!"),
+  password: Yup.string()
+               .min(6, 'Minimum 6 characters required!')
+               .required('Required!'),
+})
+
+
+const SignIn = () =>{
   const [state, setState] = useState({
     emailId: "",
     password: "",
     loading: false
   })
 
-  const handleChange = (event) =>{
+  const handleFormChange = (event) =>{
     setState({ ...state, [event.target.name]: event.target.value})
   }
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleFormSubmit = async (values) => {
     setState({ ...state, loading: true});
     const loginUserObject = {
       emailId: state.emailId,
@@ -29,45 +45,90 @@ const SignIn = () =>{
   }
 
   return (
-    <div className="login-container">
-      <div className="login-card-wrapper">
-        <form className="login-form">
-          <div className="text-center login-header">
-            <ColoredFundooHeader />
-          </div>
-          <div className="text-center login-sub-header">
-            Sign in
-          </div>
-          <div className="text-center login-sub-header">
-            Use your Fundoo Account
-          </div>
+    <Formik 
+      initialValues= {initialValues} 
+      validationSchema={validationSchema}
+      onSubmit={handleFormSubmit}
+    >
+      {({ handleSubmit, handleChange, values, handleBlur })=> (
+        <div className="login-container">
+          <div className="login-card-wrapper">
+            <Form className="login-form">
+              <div className="text-center login-header">
+                <ColoredFundooHeader />
+              </div>
+              <div className="text-center login-sub-header">
+                Sign in
+              </div>
+              <div className="text-center login-sub-header">
+                Use your Fundoo Account
+              </div>
 
-          {/* EmailId & password Section */}
-          <div className="form-group">
-            <input type="email" placeholder="Username" className="form-control" name="emailId" value={state.emailId} onChange={handleChange} autoComplete="off" ></input>
-          </div>
-          <div className="form-group">
-            <input type="password" placeholder="Password" className="form-control" name="password" value={state.password} onChange={handleChange} autoComplete="off" ></input>
-          </div>
-          <div className="form-group">
-            <a href="/forgot-password" className="btn btn-primary" >Forgot password?</a>
-          </div>
-          {/* End EmailId & password Section */}
+              {/* EmailId & password Section */}
+              <div className="form-group">
+                <Field 
+                  type="email" 
+                  placeholder="Username" 
+                  className="form-control" 
+                  name="emailId" 
+                  value={values.emailId} 
+                  onInput={handleChange}
+                  onChange={handleFormChange} 
+                  autoComplete="off" 
+                ></Field>
+                <ErrorMessage 
+                  name="emailId" 
+                  component={errorMessages} 
+                ></ErrorMessage>
+              </div>
+              <div className="form-group">
+                <Field 
+                  type="password" 
+                  placeholder="Password" 
+                  className="form-control" 
+                  name="password" 
+                  value={values.password} 
+                  onInput={handleChange}
+                  onChange={handleFormChange} 
+                  autoComplete="off" 
+                ></Field>
+                <ErrorMessage 
+                  name="password" 
+                  component={errorMessages} 
+                ></ErrorMessage>
+              </div>
+              <div className="form-group">
+                <a 
+                  href="/forgot-password" 
+                  className="btn btn-primary" 
+                >Forgot password?</a>
+              </div>
+              {/* End EmailId & password Section */}
 
-          {/* Create Account and login Links */}
-          <div>
-            <div className="form-group float-left">
-              <a href="/register" className="btn btn-primary" >Create account</a>
-            </div>
-            <div className="form-group float-right">
-              <a href="/" className="btn btn-primary" onClick={handleSubmit} >Login</a>
-            </div>
-            <div className="clearfix"></div>
+              {/* Create Account and login Links */}
+              <div>
+                <div className="form-group float-left">
+                  <a 
+                    href="/register" 
+                    className="btn btn-primary" 
+                  >Create account</a>
+                </div>
+                <div className="form-group float-right">
+                  <a 
+                    href="/" 
+                    type="submit"
+                    className="btn btn-primary" 
+                    onClick={handleSubmit} 
+                  >Login</a>
+                </div>
+                <div className="clearfix"></div>
+              </div>
+              {/* End of Create Account and login Links */}
+            </Form>
           </div>
-          {/* End of Create Account and login Links */}
-        </form>
-      </div>
-    </div>
+        </div>
+      )}
+    </Formik>
   )
 }
 

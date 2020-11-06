@@ -18,16 +18,18 @@ const initialValues = {
 const validationSchema = Yup.object().shape({
   firstName: Yup.string()
                 .min(3, 'Minimum 3 characters required!')
+                .matches(/^[A-Za-z]+$/, "Cannot contain numbers!")
                 .required('Required!'),
   lastName: Yup.string()
                .min(3, 'Minimum 3 characters required!')
+               .matches(/^[A-Za-z]+$/, "Cannot contain numbers!")
                .required('Required!'),
   emailId: Yup.string()
               .email("Invalid email format")
               .required("Required!"),
   password: Yup.string()
-              .min(5, 'Minimum 3 characters required!')
-              .required('Required!'),
+               .min(6, 'Minimum 6 characters required!')
+               .required('Required!'),
   confirm:  Yup.string()
                .oneOf(
                  [Yup.ref('password'), null],
@@ -60,10 +62,10 @@ const Registration = () =>{
       emailId: state.emailId,
       password: state.password
     }
-    // const result = await registerNewUser(registerUserObject);
+    const result = await registerNewUser(registerUserObject);
     setState({...state, loading: false});
-    console.log(state);
-    // console.log(result);
+    // console.log(state);
+    console.log(result);
   }
 
   return (
@@ -174,10 +176,17 @@ const Registration = () =>{
                 {/* Sign-in and Register Links */}
                 <div>
                   <div className="form-group float-left">
-                    <a href="/" className="btn btn-primary" >Sign in instead</a>
+                    <a 
+                      href="/" 
+                      className="btn btn-primary" 
+                    >Sign in instead</a>
                   </div>
                   <div className="form-group float-right">
-                    <a href="/" className="btn btn-primary" onClick={handleSubmit} >Next</a>
+                    <a 
+                      href="/" 
+                      className="btn btn-primary" 
+                      onClick={handleSubmit} 
+                    >Next</a>
                   </div>
                   <div className="clearfix"></div>
                 </div>
