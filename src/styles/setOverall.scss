@@ -6,3 +6,8 @@
   background: $dark-mode-background;
   color: $white-text-color;
 }
+
+.error-message {
+  color: $error-color;
+  font-size: small;
+}

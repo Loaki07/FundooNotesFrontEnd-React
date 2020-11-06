@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import ColoredFundooHeader from '../utility/coloredFundoo.jsx'
+import errorMEssages from '../utility/errorMessages.jsx'
 import '../../styles/forgotPassword.scss'
 import UserApis from "../../services/UserApis"
 import { Formik, Form, Field, ErrorMessage } from 'formik'
@@ -13,7 +14,7 @@ const initialValues = {
 const validationSchema = Yup.object().shape({
   emailId: Yup.string()
               .email("Invalid email format")
-              .required("Required")
+              .required("Required!")
 })
 
 const ForgotPassword = () =>{
@@ -68,7 +69,10 @@ const ForgotPassword = () =>{
                 onChange={handleFormChange} 
                 // onBlur={handleBlur} 
                 autoComplete="off" ></Field>
-                <ErrorMessage name="emailId"></ErrorMessage>
+                <ErrorMessage 
+                  name="emailId" 
+                  component={errorMEssages} 
+                  ></ErrorMessage>
             </div>
             <div className="form-group">
               <a 
