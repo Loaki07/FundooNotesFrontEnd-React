@@ -5,6 +5,9 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import '../../styles/login.scss'
 import UserApis from "../../services/UserApis"
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.min.css'
+toast.configure()
 const { signIn } = new UserApis();
 
 const initialValues = {
@@ -34,16 +37,21 @@ const SignIn = (props) =>{
   }
 
   const handleFormSubmit = async (values) => {
-    setState({ ...state, loading: true});
-    const loginUserObject = {
-      emailId: state.emailId,
-      password: state.password
-    }
-    const result = await signIn(loginUserObject);
-    setState({ ...state, loading: false});
-    console.log(result);
-    if (result.status === 200) {
-      props.history.push('/dashboard')
+    try {
+      setState({ ...state, loading: true});
+      const loginUserObject = {
+        emailId: state.emailId,
+        password: state.password
+      }
+      const result = await signIn(loginUserObject);
+      setState({ ...state, loading: false});
+      console.log(result);
+      if (result.status === 200) {
+        toast.success('Login Successfull!', {position: toast.POSITION.TOP_CENTER});
+        props.history.push('/dashboard')
+      }
+    } catch (error) {
+      toast.error(error.message, {position: toast.POSITION.TOP_CENTER});
     }
   }
 

@@ -5,6 +5,9 @@ import '../../styles/forgotPassword.scss'
 import UserApis from "../../services/UserApis"
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.min.css'
+toast.configure()
 const { forgotPassword } = new UserApis();
 
 const initialValues = {
@@ -28,15 +31,20 @@ const ForgotPassword = (props) =>{
   }
 
   const handleFormSubmit = async (values) => {
-    setState({ ...state, loading: true});
-    const forgotPasswordUserObject = {
-      emailId: state.emailId,
-    }
-    const result = await forgotPassword(forgotPasswordUserObject);
-    setState({ ...state, loading: false});
-    console.log(result);
-    if (result.status === 200) {
-      props.history.push('/')
+    try {
+      setState({ ...state, loading: true});
+      const forgotPasswordUserObject = {
+        emailId: state.emailId,
+      }
+      const result = await forgotPassword(forgotPasswordUserObject);
+      setState({ ...state, loading: false});
+      console.log(result);
+      if (result.status === 200) {
+        toast.success('Mail Sent!', {position: toast.POSITION.TOP_CENTER});
+        props.history.push('/')
+      }
+    } catch (error) {
+      toast.error(error.message, {position: toast.POSITION.TOP_CENTER});
     }
   }
 

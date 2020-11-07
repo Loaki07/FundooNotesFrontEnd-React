@@ -5,6 +5,9 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import '../../styles/registration.scss'
 import UserApis from "../../services/UserApis"
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.min.css'
+toast.configure()
 const { registerNewUser } = new UserApis();
 
 const initialValues = {
@@ -53,18 +56,23 @@ const Registration = (props) =>{
   }
 
   const handleFormSubmit = async (values) => {
-    setState({...state, loading: true});
-    const registerUserObject = {
-      firstName: state.firstName,
-      lastName: state.lastName,
-      emailId: state.emailId,
-      password: state.password
-    }
-    const result = await registerNewUser(registerUserObject);
-    setState({...state, loading: false});
-    console.log(result);
-    if (result.status === 200) {
-      props.history.push('/')
+    try {
+      setState({...state, loading: true});
+      const registerUserObject = {
+        firstName: state.firstName,
+        lastName: state.lastName,
+        emailId: state.emailId,
+        password: state.password
+      }
+      const result = await registerNewUser(registerUserObject);
+      setState({...state, loading: false});
+      console.log(result);
+      if (result.status === 200) {
+        toast.success('Registration Successfully!', {position: toast.POSITION.TOP_CENTER});
+        props.history.push('/')
+      }
+    } catch (error) {
+      toast.error(error.message, {position: toast.POSITION.TOP_CENTER});
     }
   }
 
