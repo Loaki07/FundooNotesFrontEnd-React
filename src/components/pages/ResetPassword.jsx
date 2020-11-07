@@ -67,7 +67,7 @@ const ResetPassword = (props) =>{
               </div>
               <div className="form-group text-left">
                 <small className="reset-password-small">
-                  Enter New Password
+                  Fill new password details
                 </small>
               </div>
               <div className="form-group">
@@ -89,7 +89,7 @@ const ResetPassword = (props) =>{
               <div className="form-group">
                 <Field 
                   type="password" 
-                  placeholder="Confirm" 
+                  placeholder="Confirm new password" 
                   className="form-control" 
                   name="confirm" 
                   value={values.confirm} 
