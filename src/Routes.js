@@ -6,6 +6,7 @@ import TestPage from './components/pages/test-page.jsx';
 import ErrorPage from './components/pages/ErrorPage.jsx';
 import ForgotPassword from './components/pages/ForgotPassword.jsx';
 import ResetPassword from './components/pages/ResetPassword.jsx';
+import Dashboard from './components/pages/Dashboard.jsx';
 
 function Routes() {
   return (
@@ -15,6 +16,7 @@ function Routes() {
         <Route path="/register" component={Registration} />
         <Route path="/forgot-password" component={ForgotPassword} />
         <Route path="/reset-password" component={ResetPassword} />
+        <Route path="/dashboard" component={Dashboard} />
         <Route path="/test-page" component={TestPage} />
         <Route component={ErrorPage} />
       </Switch>

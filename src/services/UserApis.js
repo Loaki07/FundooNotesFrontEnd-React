@@ -6,35 +6,30 @@ class UserApis {
   registerNewUser = (data) => {
     return axios
       .post(process.env.REACT_APP_FUNDOO_API_URL + 'register', data)
-      .then((res) => res.data)
       .catch((error) => error);
   };
 
   signIn = (data) => {
     return axios
       .post(process.env.REACT_APP_FUNDOO_API_URL + 'login', data)
-      .then((res) => res.data)
       .catch((error) => error);
   };
 
   homepage = () => {
     return axios
       .get(process.env.REACT_APP_FUNDOO_API_URL)
-      .then((res) => res.data)
       .catch((error) => error);
   };
 
   forgotPassword = (data) => {
     return axios
       .post(process.env.REACT_APP_FUNDOO_API_URL + 'forgotPassword', data)
-      .then((res) => res.data)
       .catch((error) => error);
   };
 
   resetPassword = (data, token) => {
     return axios
       .put(process.env.REACT_APP_FUNDOO_API_URL + 'resetpassowd' + token, data)
-      .then((res) => res.data)
       .catch((error) => error);
   };
 }

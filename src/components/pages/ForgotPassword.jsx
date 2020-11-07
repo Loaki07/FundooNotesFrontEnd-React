@@ -17,7 +17,7 @@ const validationSchema = Yup.object().shape({
               .required("Required!")
 })
 
-const ForgotPassword = () =>{
+const ForgotPassword = (props) =>{
   const [state, setState] = useState({
     emailId: "",
     loading: false
@@ -35,6 +35,9 @@ const ForgotPassword = () =>{
     const result = await forgotPassword(forgotPasswordUserObject);
     setState({ ...state, loading: false});
     console.log(result);
+    if (result.status === 200) {
+      props.history.push('/')
+    }
   }
 
     return (

@@ -22,7 +22,7 @@ const validationSchema = Yup.object().shape({
 })
 
 
-const SignIn = () =>{
+const SignIn = (props) =>{
   const [state, setState] = useState({
     emailId: "",
     password: "",
@@ -42,6 +42,9 @@ const SignIn = () =>{
     const result = await signIn(loginUserObject);
     setState({ ...state, loading: false});
     console.log(result);
+    if (result.status === 200) {
+      props.history.push('/dashboard')
+    }
   }
 
   return (

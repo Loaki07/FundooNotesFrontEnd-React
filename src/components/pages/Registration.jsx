@@ -38,8 +38,7 @@ const validationSchema = Yup.object().shape({
                .required('Required!'),
 })
 
-const Registration = () =>{
-
+const Registration = (props) =>{
   const [state, setState] = useState({
     firstName: "",
     lastName: "",
@@ -54,7 +53,6 @@ const Registration = () =>{
   }
 
   const handleFormSubmit = async (values) => {
-    // event.preventDefault();
     setState({...state, loading: true});
     const registerUserObject = {
       firstName: state.firstName,
@@ -64,8 +62,10 @@ const Registration = () =>{
     }
     const result = await registerNewUser(registerUserObject);
     setState({...state, loading: false});
-    // console.log(state);
     console.log(result);
+    if (result.status === 200) {
+      props.history.push('/')
+    }
   }
 
   return (

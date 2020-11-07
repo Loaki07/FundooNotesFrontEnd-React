@@ -24,7 +24,7 @@ const validationSchema = Yup.object().shape({
                .required('Required!'),
 })
 
-const ResetPassword = () =>{
+const ResetPassword = (props) =>{
   const [state, setState] = useState({
     password: "",
     confirm: "",
@@ -44,6 +44,9 @@ const ResetPassword = () =>{
     setState({ ...state, loading: false});
     console.log(result);
     console.log(state);
+    if (result.status === 200) {
+      props.history.push('/')
+    }
   }
 
   return (
