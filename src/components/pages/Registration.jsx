@@ -186,7 +186,7 @@ const Registration = (props) =>{
                   <div className="form-group float-left">
                     <a 
                       href="/" 
-                      className="btn btn-primary" 
+                      className="btn btn-primary link-buttons" 
                     >Sign in instead</a>
                   </div>
                   <div className="form-group float-right">

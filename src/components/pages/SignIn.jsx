@@ -111,7 +111,7 @@ const SignIn = (props) =>{
               <div className="form-group">
                 <a 
                   href="/forgot-password" 
-                  className="btn btn-primary" 
+                  className="btn btn-primary link-buttons" 
                 >Forgot password?</a>
               </div>
               {/* End EmailId & password Section */}
@@ -121,7 +121,7 @@ const SignIn = (props) =>{
                 <div className="form-group float-left">
                   <a 
                     href="/register" 
-                    className="btn btn-primary" 
+                    className="btn btn-primary link-buttons" 
                   >Create account</a>
                 </div>
                 <div className="form-group float-right">
