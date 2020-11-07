@@ -77,14 +77,14 @@ const ForgotPassword = (props) =>{
                   component={errorMessages} 
                 ></ErrorMessage>
             </div>
-            <div className="form-group">
+            <div className="form-group text-center">
               <a 
                 href="/" 
                 type="submit" 
                 className="btn btn-primary" 
                 onClick={handleSubmit} 
                 >
-                  Receive Reset Password Link</a>
+                  Submit</a>
             </div>
           </Form>
         </div>
