@@ -1,7 +1,13 @@
 @import './colors.scss';
 
 .header-right-icons {
-  margin: 10px;
-  padding: 10px;
   font-size: large;
+}
+
+.hearder-searchbar {
+  min-width: 500px;
+}
+
+.navbar {
+  border-bottom: 2px solid;
 }

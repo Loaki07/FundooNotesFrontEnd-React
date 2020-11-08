@@ -5,6 +5,10 @@ const Header = () =>{
   return (
     <div>
       <nav className="navbar navbar-expand-sm navbar-light bg-light">
+        <button className="btn btn-circle btn-sm" type="button">
+          <i className="fas fa-bars fa-1x nav-link header-right-icons"></i>
+          {/* <i class="far fa-bars"></i> */}
+        </button>
         <div>
           <a 
             className="navbar-brand" 
@@ -34,40 +38,53 @@ const Header = () =>{
         >
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <form className="navbar-form" role="search">
+              <form 
+                className="navbar-form" 
+                role="search">
                 <div className="input-group">
                     <div className="input-group-btn">
-                        <button className="btn btn-default" type="submit"><i className="fas fa-search"></i></button>
+                      <button className="btn btn-default" type="submit"><i className="fas fa-search"></i></button>
                     </div>
-                    <input type="text" className="form-control" placeHolder="Search" 
-                    name="srch-term" 
-                    id="srch-term"/>
+                    <div className="hearder-searchbar" >
+                      <input type="text" 
+                        className="form-control" 
+                        placeHolder="Search" 
+                        name="srch-term" 
+                        id="srch-term"/>
+                    </div>
                     <div className="input-group-btn">
-                        <button className="btn btn-default" type="submit"><i class="fas fa-times"></i></button>
+                      <button className="btn btn-default" type="submit"><i class="fas fa-times"></i></button>
                     </div>
                 </div>
               </form>
             </li>
-            {/* <li className="nav-item">
-              <form>
-                <div className="form-group d-flex justify-content-between">
-                  <i className="fas fa-search"></i>
-                  <input 
-                    type="text" 
-                    placeholder="search"
-                    className="form-control"
-                  />
-                  <i className="">&times;</i>
-                </div>
-              </form>
-            </li> */}
           </ul>
           <ul className="navbar-nav">
-            <li><i className="fas fa-redo fa-1x nav-item nav-link header-right-icons"></i></li>
-            <li><i className="fas fa-list-alt fa-1x nav-item nav-link header-right-icons"></i></li>
-            <li><i className="fas fa-cog fa-1x nav-item nav-link header-right-icons"></i></li>
-            <li><i className="fas fa-th fa-1x nav-item nav-link header-right-icons"></i></li>
-            <li><i className="fas fa-user-circle fa-1x nav-item nav-link header-right-icons"></i></li>
+            <li className="nav-item">
+              <a href="/dashboard" className="btn btn-circle btn-sm" type="button">
+                  <i className="fas fa-redo fa-1x nav-link header-right-icons"></i>
+              </a>
+            </li>
+            <li className="nav-item">
+              <button className="btn btn-circle btn-sm" type="button">
+                <i className="fas fa-list-alt fa-1x nav-link header-right-icons"></i>
+              </button>
+            </li>
+            <li className="nav-item">
+              <button className="btn btn-circle btn-sm" type="button">
+                <i className="fas fa-cog fa-1x nav-link header-right-icons"></i>
+              </button>
+            </li>
+            <li className="nav-item">
+              <button className="btn btn-circle btn-sm" type="button">
+                <i className="fas fa-th fa-1x nav-link header-right-icons"></i>
+              </button>
+            </li>
+            <li className="nav-item">
+              <button className="btn btn-circle btn-sm" type="button">
+                <i className="fas fa-user-circle fa-1x nav-link header-right-icons"></i>
+              </button>
+            </li>
           </ul>
         </div>
       </nav>
