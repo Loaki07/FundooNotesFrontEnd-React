@@ -3,13 +3,14 @@ import '../styles/header.scss'
 
 const Header = () =>{
   return (
-    <div>
+    <div className="header-wrapper">
       <nav className="navbar navbar-expand-sm navbar-light bg-light">
-        <button className="btn btn-circle btn-sm" type="button">
+        <button 
+          className="btn btn-circle btn-sm" 
+          type="button">
           <i className="fas fa-bars fa-1x nav-link header-right-icons"></i>
-          {/* <i class="far fa-bars"></i> */}
         </button>
-        <div>
+        <div className="logo">  
           <a 
             className="navbar-brand" 
             href="/dashboard" 
