@@ -68,13 +68,15 @@ const Registration = (props) =>{
       setState({...state, loading: false});
       console.log(result);
       if (result.status === 200) {
-        toast.success('Registration Successfully!', {position: toast.POSITION.TOP_CENTER});
-        props.history.push('/')
+        toast.success('Registration Successfull!', {position: toast.POSITION.TOP_CENTER});
+        props.history.push('/');
       }
     } catch (error) {
       toast.error(error.message, {position: toast.POSITION.TOP_CENTER});
     }
   }
+
+  
 
   return (
     <Formik
