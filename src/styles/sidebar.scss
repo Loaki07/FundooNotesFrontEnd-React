@@ -7,15 +7,15 @@ a:focus {
 }
 
 #sidebar {
-  min-width: 350px;
-  max-width: 350px;
-  background: red;
-  clear: #fff;
+  min-width: 250px;
+  max-width: 250px;
+  background: #fff;
+  clear: #000;
   transition: all 0.3s;
 }
 
 #sidebar.active {
-  margin-left: 250px;
+  margin-left: -250px;
 }
 
 #sidebar ul.components {
@@ -29,8 +29,8 @@ a:focus {
 }
 
 #sidebar ul li a:hover {
-  color: #fff;
-  background: #318fb5;
+  color: #000;
+  background: #D3D3D3;
 }
 
 @media (maz-width: 768px) {
@@ -41,12 +41,6 @@ a:focus {
     margin-left: 0px;
   }
   #sidebarCollapse span {
-    display: none ;
+    display: none;
   }
 }
-
-// $(document).ready(function() {
-//   $("sidebarCollapse").on("click", function() {
-//     $("sidebar").toggleClass('active')
-//   })
-// })

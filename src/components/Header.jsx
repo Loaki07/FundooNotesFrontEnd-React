@@ -2,12 +2,16 @@ import React from 'react'
 import '../styles/header.scss'
 
 const Header = () =>{
+
   return (
     <div className="header-wrapper">
       <nav className="navbar navbar-expand-sm navbar-light bg-light">
         <button 
           className="btn btn-circle btn-sm" 
-          type="button">
+          type="button"
+          id="sidebarCollapse"
+          // onClick={toggleSideBar}
+        >
           <i className="fas fa-bars fa-1x nav-link header-right-icons"></i>
         </button>
         <div className="logo">  
@@ -49,12 +53,12 @@ const Header = () =>{
                     <div className="hearder-searchbar" >
                       <input type="text" 
                         className="form-control" 
-                        placeHolder="Search" 
+                        placeholder="Search" 
                         name="srch-term" 
                         id="srch-term"/>
                     </div>
                     <div className="input-group-btn">
-                      <button className="btn btn-default" type="submit"><i class="fas fa-times"></i></button>
+                      <button className="btn btn-default" type="submit"><i className="fas fa-times"></i></button>
                     </div>
                 </div>
               </form>
