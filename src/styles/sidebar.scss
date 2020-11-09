@@ -30,7 +30,9 @@ a:focus {
 
 #sidebar ul li a:hover {
   color: #000;
-  background: #D3D3D3;
+  background: #d3d3d3;
+  border-top-right-radius: 35px 100%;
+  border-bottom-right-radius: 35px 100%;
 }
 
 @media (maz-width: 768px) {
