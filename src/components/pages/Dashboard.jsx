@@ -4,18 +4,10 @@ import Sidebar from '../Sidebar.jsx'
 import "../../styles/dashboard.scss"
 
 const Dashboard = () =>{
-
-  useEffect(() => {
-    const sidebarToggle = document.querySelector("#sidebarCollapse")
-    sidebarToggle.onclick = () => {
-      document.querySelector("#sidebar").classList.toggle('active')
-    } 
-  },[]);
-
   return (
-    <div className="dashboard-wrapper">
-      <Sidebar />
+    <div className="dashboard-grid-container">
       <Header />
+      <Sidebar />
     </div>
   )
 }

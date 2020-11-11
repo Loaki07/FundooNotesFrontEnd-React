@@ -3,6 +3,10 @@ import '../styles/header.scss'
 
 const Header = () =>{
 
+  const toggleSideBar = () => {
+    document.querySelector("#sidebar").classList.toggle('active')
+  }
+
   return (
     <div className="header-wrapper">
       <nav className="navbar navbar-expand-sm navbar-light bg-light">
@@ -10,7 +14,7 @@ const Header = () =>{
           className="btn btn-circle btn-sm" 
           type="button"
           id="sidebarCollapse"
-          // onClick={toggleSideBar}
+          onClick={toggleSideBar}
         >
           <i className="fas fa-bars fa-1x nav-link header-right-icons"></i>
         </button>

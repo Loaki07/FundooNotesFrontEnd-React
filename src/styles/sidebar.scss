@@ -9,7 +9,7 @@ a:focus {
 #sidebar {
   min-width: 250px;
   max-width: 250px;
-  background: #fff;
+  background: #eee;
   clear: #000;
   transition: all 0.3s;
 }
@@ -35,14 +35,11 @@ a:focus {
   border-bottom-right-radius: 35px 100%;
 }
 
-@media (maz-width: 768px) {
+@media (max-width: 768px) {
   #sidebar {
     margin-left: -250px;
   }
   #sidebar.active {
     margin-left: 0px;
-  }
-  #sidebarCollapse span {
-    display: none;
   }
 }
