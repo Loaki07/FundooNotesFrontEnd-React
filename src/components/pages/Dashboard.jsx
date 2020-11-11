@@ -7,7 +7,76 @@ const Dashboard = () =>{
   return (
     <div className="dashboard-grid-container">
       <Header />
-      <Sidebar />
+      <div className="dashboard-body-container">
+        <Sidebar />
+        <div className="dashboard-notes-container">
+          <div className="create-note-form box1">
+            Create Note Form
+          </div>
+          <div className="db-disp-notes-cont box2">
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

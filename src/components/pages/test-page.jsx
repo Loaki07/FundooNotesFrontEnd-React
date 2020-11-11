@@ -11,21 +11,69 @@ const TestPage = () =>{
       <div className="dashboard-body-container">
         <Sidebar />
         <div className="dashboard-notes-container">
-          <div className="box1">
+          <div className="create-note-form box1">
             Create Note Form
           </div>
           <div className="db-disp-notes-cont box2">
             <div className="note-boxes">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium tempora voluptas earum iusto? Qui consequatur cum autem porro minus asperiores.
+              Notes, Notes body and Content
             </div>
             <div className="note-boxes">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium tempora voluptas earum iusto? Qui consequatur cum autem porro minus asperiores.
+              Notes, Notes body and Content
             </div>
             <div className="note-boxes">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium tempora voluptas earum iusto? Qui consequatur cum autem porro minus asperiores.
+              Notes, Notes body and Content
             </div>
             <div className="note-boxes">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium tempora voluptas earum iusto? Qui consequatur cum autem porro minus asperiores.
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
+            </div>
+            <div className="note-boxes">
+              Notes, Notes body and Content
             </div>
           </div>
         </div>

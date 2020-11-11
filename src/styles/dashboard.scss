@@ -8,10 +8,59 @@
   text-decoration: none;
 }
 
-.dashboard-wrapper {
+.dashboard-grid-container {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-gap: 1em;
+}
+
+.dashboard-grid-container > div {
+  background: #ddd;
+  padding: 1em;
+}
+
+.dashboard-grid-container > div:nth-child(odd) {
+  background: blanchedalmond;
+}
+
+.dashboard-grid-container .dashboard-body-container {
+  display: grid;
+  grid-template-columns: 1fr 25fr;
+  grid-gap: 1em;
+  height: 100%;
+}
+
+.dashboard-grid-container .dashboard-body-container .dashboard-notes-container {
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  grid-gap: 1em;
+  padding: 10px;
+  border: 3px solid brown;
+}
+
+.create-note-form {
+  text-align: center;
+}
+
+.db-disp-notes-cont {
   display: flex;
-  width: 100%;
-  justify-content: stretch;
-  align-items: stretch;
-  height: 100vh;
+  flex-wrap: wrap;
+  border: 2px solid black;
+  justify-content: space-around;
+  align-items: flex-start;
+  max-width: 100%;
+  padding: 10px;
+}
+
+.box1,
+.box2,
+.note-boxes {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid maroon;
+}
+
+.note-boxes {
+  min-width: 100px;
+  min-height: 200px;
 }
