@@ -1,6 +1,6 @@
 @import './colors.scss';
 
-.create-note-form {
+.create-note-form-control {
   margin: 5px;
   padding: 10px;
   min-width: 700px;
@@ -10,4 +10,9 @@
 .create-note-rows {
   margin: 5px;
   padding: 5px;
+}
+
+.form-fields {
+  margin: 10px;
+  padding: 10px;
 }

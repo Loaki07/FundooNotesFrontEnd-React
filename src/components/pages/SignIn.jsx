@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import ColoredFundooHeader from '../utility/coloredFundoo.jsx'
-import errorMessages from '../utility/errorMessages.jsx'
+import ColoredFundooHeader from '../coloredFundoo.jsx'
+import errorMessages from '../errorMessages.jsx'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import '../../styles/login.scss'
@@ -46,8 +46,10 @@ const SignIn = (props) =>{
       const result = await signIn(loginUserObject);
       setState({ ...state, loading: false});
       console.log(result);
+      console.log(result.data.token);
       if (result.status === 200) {
         toast.success('Login Successfull!', {position: toast.POSITION.TOP_CENTER});
+        localStorage.setItem('token', result.data.token);
         props.history.push('/dashboard')
       }
     } catch (error) {

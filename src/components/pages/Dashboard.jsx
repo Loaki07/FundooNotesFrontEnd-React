@@ -5,6 +5,17 @@ import CreateNoteForm from '../CreateNoteForm.jsx'
 import "../../styles/dashboard.scss"
 
 const Dashboard = () =>{
+  const displayNotes = () => {
+    const notesArray = []; 
+    for (let i = 0; i <30; i++ ) {
+      notesArray.push(
+        <div key={i} className="note-boxes">
+          Notes, Notes body and Content
+        </div>
+      )
+    }
+    return (notesArray)
+  }
   return (
     <div className="dashboard-grid-container">
       <Header />
@@ -15,66 +26,7 @@ const Dashboard = () =>{
             <CreateNoteForm />
           </div>
           <div className="db-disp-notes-cont box2">
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
-            <div className="note-boxes">
-              Notes, Notes body and Content
-            </div>
+            {displayNotes()}
           </div>
         </div>
       </div>

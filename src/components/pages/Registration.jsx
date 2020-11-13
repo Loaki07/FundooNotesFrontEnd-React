@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import ColoredFundooHeader from '../utility/coloredFundoo.jsx'
-import errorMessages from '../utility/errorMessages.jsx'
+import ColoredFundooHeader from '../coloredFundoo.jsx'
+import errorMessages from '../errorMessages.jsx'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import '../../styles/registration.scss'
@@ -68,7 +68,7 @@ const Registration = (props) =>{
       setState({...state, loading: false});
       console.log(result);
       if (result.status === 200) {
-        toast.success('Registration Successfull!', {position: toast.POSITION.TOP_CENTER});
+        toast.success('Registration Successfull !', {position: toast.POSITION.TOP_CENTER});
         props.history.push('/');
       }
     } catch (error) {

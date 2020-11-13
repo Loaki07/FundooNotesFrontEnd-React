@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import ColoredFundooHeader from '../utility/coloredFundoo.jsx'
-import errorMessages from '../utility/errorMessages.jsx'
+import ColoredFundooHeader from '../coloredFundoo.jsx'
+import errorMessages from '../errorMessages.jsx'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import '../../styles/resetPassword.scss'
