@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Header from '../Header.jsx'
 import Sidebar from '../Sidebar.jsx'
+import CreateNoteForm from '../CreateNoteForm.jsx'
 import "../../styles/dashboard.scss"
 
 const Dashboard = () =>{
@@ -11,7 +12,7 @@ const Dashboard = () =>{
         <Sidebar />
         <div className="dashboard-notes-container">
           <div className="create-note-form box1">
-            Create Note Form
+            <CreateNoteForm />
           </div>
           <div className="db-disp-notes-cont box2">
             <div className="note-boxes">

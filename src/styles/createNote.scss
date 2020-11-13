@@ -1,0 +1,13 @@
+@import './colors.scss';
+
+.create-note-form {
+  margin: 5px;
+  padding: 10px;
+  min-width: 700px;
+  border: 2px solid $card-border-color;
+}
+
+.create-note-rows {
+  margin: 5px;
+  padding: 5px;
+}

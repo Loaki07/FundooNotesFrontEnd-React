@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import Header from '../Header.jsx'
 import Sidebar from '../Sidebar.jsx'
 import "../../styles/test-page.scss"
