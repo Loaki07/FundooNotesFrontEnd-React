@@ -37,8 +37,8 @@ function CreateNoteForm(props) {
     setState({ ...state, isFormOpen: true })
   }
 
-  const handleFormSubmit = async (values) => {
-    try {
+  const handleFormSubmit = (values) => {
+    
       if (state.noteTitle === "") {
         return setState({ ...state, isFormOpen: false })
       }
@@ -47,17 +47,16 @@ function CreateNoteForm(props) {
         description: state.noteBody
       }
       const token = localStorage.getItem('token')
-      const result = await createNote(createNoteObject, token);
-      console.log(result);
-      if (result.status === 200) {
-        toast.success('Note Created Successfully !', {position: toast.POSITION.TOP_CENTER});
-        values.noteTitle = "";
-        values.noteBody = "";
-        setState({ ...state, isFormOpen: false })
-      } 
-    } catch (error) {
-      toast.error(error.message, {position: toast.POSITION.TOP_CENTER});
-    }
+      createNote(createNoteObject, token)
+        .then(res => {
+            if (res.status === 200) {
+              toast.success('Note Created Successfully !', {position: toast.POSITION.TOP_CENTER});
+              values.noteTitle = "";
+              values.noteBody = "";
+              setState({ ...state, isFormOpen: false })
+            } 
+          })
+        .catch(error => toast.error(error.message, {position: toast.POSITION.TOP_CENTER}));
   }
 
   return (
@@ -97,7 +96,7 @@ function CreateNoteForm(props) {
             }
             <div className="row create-note-rows">
               <div className="col">
-                <Field 
+                <textarea 
                     type="text"
                     className="form-control col-10
                     create-note-field-control"
@@ -107,7 +106,7 @@ function CreateNoteForm(props) {
                     onChange={handleFormChange} 
                     onClick={toggleForm}
                     placeholder="Take a note..."
-                  ></Field>
+                  ></textarea>
               </div> 
               { !state.isFormOpen &&
                 <>

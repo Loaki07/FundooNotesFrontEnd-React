@@ -1,20 +1,37 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import NoteApis from "../../services/NoteApis"
 import Header from '../Header.jsx'
 import Sidebar from '../Sidebar.jsx'
+import DisplayNote from '../DisplayNote.jsx'
 import CreateNoteForm from '../CreateNoteForm.jsx'
 import "../../styles/dashboard.scss"
 
+const { getNotes } = new NoteApis();
+
 const Dashboard = () =>{
+  
+  const notesArray = [];
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    console.log(token);
+    getNotes(token).then(res => {
+      res.data.data.forEach(note => {
+        notesArray.push(note)
+      })
+      console.log(res.data.data)
+      console.log(notesArray.length);
+    })
+  })
+
   const displayNotes = () => {
-    const notesArray = []; 
+    const someArray = [];
     for (let i = 0; i <30; i++ ) {
-      notesArray.push(
-        <div key={i} className="note-boxes">
-          Notes, Notes body and Content
-        </div>
+      someArray.push(
+        <DisplayNote key={i}  />
       )
     }
-    return (notesArray)
+    return (someArray)
   }
   return (
     <div className="dashboard-grid-container">

@@ -46,7 +46,6 @@ const SignIn = (props) =>{
       const result = await signIn(loginUserObject);
       setState({ ...state, loading: false});
       console.log(result);
-      console.log(result.data.token);
       if (result.status === 200) {
         toast.success('Login Successfull!', {position: toast.POSITION.TOP_CENTER});
         localStorage.setItem('token', result.data.token);
