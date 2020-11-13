@@ -5,14 +5,23 @@
   padding: 10px;
   min-width: 700px;
   border: 2px solid $card-border-color;
+  border-radius: 10px;
 }
 
 .create-note-rows {
-  margin: 5px;
-  padding: 5px;
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 2px;
 }
 
 .form-fields {
   margin: 10px;
   padding: 10px;
+}
+
+.create-note-field-control,
+.create-note-field-control:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
 }

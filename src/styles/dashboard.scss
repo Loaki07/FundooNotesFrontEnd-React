@@ -11,16 +11,17 @@
 .dashboard-grid-container {
   display: grid;
   grid-template-rows: 1fr;
-  grid-gap: 1em;
+  justify-content: stretch;
+  // grid-gap: 1em;
 }
 
 .dashboard-grid-container > div {
-  background: #ddd;
-  padding: 1em;
+  // background: #ddd;
+  // padding: 1em;
 }
 
 .dashboard-grid-container > div:nth-child(odd) {
-  background: blanchedalmond;
+  // background: blanchedalmond;
 }
 
 .dashboard-grid-container .dashboard-body-container {
@@ -35,7 +36,7 @@
   grid-template-rows: 1fr 10fr;
   grid-gap: 1em;
   padding: 10px;
-  border: 3px solid brown;
+  // border: 3px solid brown;
 }
 
 .create-note-form {
@@ -45,7 +46,7 @@
 .db-disp-notes-cont {
   display: flex;
   flex-wrap: wrap;
-  border: 2px solid black;
+  // border: 2px solid black;
   justify-content: space-around;
   align-items: flex-start;
   max-width: 100%;
@@ -57,10 +58,11 @@
 .note-boxes {
   padding: 10px;
   margin: 10px;
-  border: 1px solid maroon;
+  // border: 1px solid maroon;
 }
 
 .note-boxes {
   min-width: 100px;
   min-height: 200px;
+  border: 1px solid maroon;
 }
