@@ -1,14 +1,15 @@
 import React from 'react'
 import "../styles/sidebar.scss"
 
-const Sidebar = () =>{
+const Sidebar = (props) =>{
   return (
     <>
       <nav id="sidebar">
         <ul className="list-unstyled components">
           <li>
             <a 
-              href="/" 
+              href="#" 
+              onClick={props.displayNotes}
               >
                 <i className="fas fa-lightbulb">
                   <span> Notes</span>
