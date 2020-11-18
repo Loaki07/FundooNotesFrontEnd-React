@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import NoteApis from "../services/NoteApis"
 import '../styles/displayNote.scss'
+import UpdateNote from "./updateNote.jsx"
 
 const { getNotes } = new NoteApis();
 
@@ -12,10 +13,6 @@ const DisplayNote = (props) =>{
     noteId: "",
     title: "",
     description: "",
-  })
-
-  useEffect(() => {
-    // 
   })
 
   const { title, description } = props;
@@ -30,6 +27,7 @@ const DisplayNote = (props) =>{
 
   const showNoteCompletely = () => {
     console.log("showingNote");
+    setNote({ ...note, isNoteOpen: true })
   }
 
   return (

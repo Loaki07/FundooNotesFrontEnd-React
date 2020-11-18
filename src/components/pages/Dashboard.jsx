@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import NoteApis from "../../services/NoteApis"
 import Header from '../Header.jsx'
 import Sidebar from '../Sidebar.jsx'
@@ -9,7 +9,6 @@ import "../../styles/dashboard.scss"
 const { getNotes } = new NoteApis();
 
 const Dashboard = () =>{
-  const res = [];
   const [ state, setState ] = useState({
     noteData: [
       {
