@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import NoteApis from "../services/NoteApis"
 import '../styles/displayNote.scss'
-import UpdateNote from "./updateNote.jsx"
+// import UpdateNote from "./updateNote.jsx"
 
 const { getNotes } = new NoteApis();
 

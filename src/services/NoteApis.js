@@ -1,30 +1,18 @@
-import axios from 'axios';
+import ApiRequests from './ApiRequests';
 import dotenv from 'dotenv';
 dotenv.config();
 
+const { getWithAuth, postWithAuth } = new ApiRequests();
+
 class NoteApis {
   createNote = (data, token) => {
-    const headersObject = {
-      headers: {
-        Authorization: 'Bearer ' + token,
-      },
-    };
-    return axios
-      .post(process.env.REACT_APP_FUNDOO_API_URL + 'users/notes', data, headersObject)
-      .then((res) => res)
-      .catch((error) => error);
+    const url = process.env.REACT_APP_FUNDOO_API_URL + 'users/notes';
+    return postWithAuth(url, data, token);
   };
 
   getNotes = (token) => {
-    const headersObject = {
-      headers: {
-        Authorization: 'Bearer ' + token,
-      },
-    };
-    return axios
-      .get(process.env.REACT_APP_FUNDOO_API_URL + 'users/notes', headersObject)
-      .then((res) => res)
-      .catch((error) => error);
+    const url = process.env.REACT_APP_FUNDOO_API_URL + 'users/notes';
+    return getWithAuth(url, token);
   };
 }
 export default NoteApis;

@@ -46,6 +46,7 @@ function CreateNoteForm(props) {
         title: state.noteTitle,
         description: state.noteBody
       }
+      console.log(createNoteObject);
       const token = localStorage.getItem('token')
       createNote(createNoteObject, token)
         .then(res => {

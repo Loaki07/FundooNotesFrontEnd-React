@@ -1,36 +1,28 @@
-import axios from 'axios';
+import ApiRequests from './ApiRequests';
 import dotenv from 'dotenv';
 dotenv.config();
 
+const { get, post } = new ApiRequests();
+
 class UserApis {
   registerNewUser = (data) => {
-    return axios
-      .post(process.env.REACT_APP_FUNDOO_API_URL + 'register', data)
-      .catch((error) => error);
+    const url = process.env.REACT_APP_FUNDOO_API_URL + 'register';
+    return post(url, data);
   };
 
   signIn = (data) => {
-    return axios
-      .post(process.env.REACT_APP_FUNDOO_API_URL + 'login', data)
-      .catch((error) => error);
+    const url = process.env.REACT_APP_FUNDOO_API_URL + 'login';
+    return post(url, data);
   };
 
   homepage = () => {
-    return axios
-      .get(process.env.REACT_APP_FUNDOO_API_URL)
-      .catch((error) => error);
+    const url = process.env.REACT_APP_FUNDOO_API_URL;
+    return get(url);
   };
 
   forgotPassword = (data) => {
-    return axios
-      .post(process.env.REACT_APP_FUNDOO_API_URL + 'forgotPassword', data)
-      .catch((error) => error);
-  };
-
-  resetPassword = (data, token) => {
-    return axios
-      .put(process.env.REACT_APP_FUNDOO_API_URL + 'resetpassowd' + token, data)
-      .catch((error) => error);
+    const url = process.env.REACT_APP_FUNDOO_API_URL + 'forgotPassword';
+    return post(url, data);
   };
 }
 

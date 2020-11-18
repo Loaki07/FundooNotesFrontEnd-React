@@ -41,7 +41,7 @@ const Dashboard = () =>{
             className="db-disp-notes-cont box2" 
           >
           { state.isDataReceived &&
-            state.noteData.map((note, index) => {
+            state.noteData.reverse().map((note, index) => {
                return (<DisplayNote 
                   key={index} 
                   title={note.title} 
