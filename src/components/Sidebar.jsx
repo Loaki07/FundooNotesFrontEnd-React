@@ -8,7 +8,8 @@ const Sidebar = (props) =>{
         <ul className="list-unstyled components">
           <li>
             <a 
-              href="#" 
+              href="/dashboard" 
+              type="button"
               onClick={props.displayNotes}
               >
                 <i className="fas fa-lightbulb">

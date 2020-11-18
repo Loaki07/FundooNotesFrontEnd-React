@@ -17,74 +17,39 @@ const Dashboard = () =>{
         description: "Note Description",
       }
     ],
-    isDataReceived: true,
+    isDataReceived: false,
     displayNotes: null,
   })
-  const [ visible , setVisible ] = useState(false);
-
   
-  const getNotesFromDb = () => { 
+  const getNotesFromDb = (event) => { 
+    event.preventDefault();
     const token = localStorage.getItem('token')
     getNotes(token).then(result => {
-      // console.log(result.data.data);
-      setState({noteData: result.data.data })
+      setState({ ...state, isDataReceived: true, noteData: result.data.data})
     });
   }
-
-  const displayNotes = (event) => {
-    event.preventDefault();
-    getNotesFromDb();
-    const result = state.noteData.map((note, index) => {
-      const notesArray = [];
-      console.log(note, index);
-      // notesArray.push(
-       return (<DisplayNote 
-          key={index} 
-          title={note.title} 
-          description={note.description} 
-        />)
-      // )
-      // console.log(notesArray);
-      // return notesArray;
-    })
-    
-    // console.log(result);
-    setState({ ...state, displayNotes: [...displayNotes, {result}] })
-    // console.log(state.displayNotes);
-
-    // Use this for showing the card div
-    // const someArray = [];
-    // for (let i = 0; i <30; i++ ) {
-    //   someArray.push(
-    //     <DisplayNote 
-    //       key={i} 
-    //       title="Note Title" 
-    //       description="Note Description" 
-    //     />
-    //   )
-    // }
-    // return someArray
-  }
-
-  useEffect(() => {
-
-  })
 
   return (
     <div className="dashboard-grid-container">
       <Header />
       <div className="dashboard-body-container">
-        <Sidebar displayNotes={displayNotes} />
+        <Sidebar displayNotes={getNotesFromDb} />
         <div className="dashboard-notes-container">
           <div className="create-note-form box1">
             <CreateNoteForm />
           </div>
           <div 
-            className="db-disp-notes-cont box2"
-            style={{ color: "red" }} 
+            className="db-disp-notes-cont box2" 
           >
-            Getting Data
-          { state.displayNotes }
+          { state.isDataReceived &&
+            state.noteData.map((note, index) => {
+               return (<DisplayNote 
+                  key={index} 
+                  title={note.title} 
+                  description={note.description} 
+                />)
+            })
+          }
           </div>
         </div>
       </div>
