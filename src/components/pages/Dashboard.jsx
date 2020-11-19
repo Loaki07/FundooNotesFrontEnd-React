@@ -17,14 +17,16 @@ const Dashboard = () =>{
       }
     ],
     isDataReceived: false,
-    displayNotes: null,
+    updateNote: false,
   })
   
   const getNotesFromDb = (event) => { 
     event.preventDefault();
     const token = localStorage.getItem('token')
     getNotes(token).then(result => {
-      setState({ ...state, isDataReceived: true, noteData: result.data.data})
+      setState({ ...state, 
+            isDataReceived: true,
+            noteData: result.data.data})
     });
   }
 
@@ -43,7 +45,8 @@ const Dashboard = () =>{
           { state.isDataReceived &&
             state.noteData.reverse().map((note, index) => {
                return (<DisplayNote 
-                  key={index} 
+                  key={index}
+                  noteId={note._id} 
                   title={note.title} 
                   description={note.description} 
                 />)

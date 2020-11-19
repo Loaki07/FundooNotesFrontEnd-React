@@ -47,7 +47,7 @@ const SignIn = (props) =>{
       setState({ ...state, loading: false});
       console.log(result);
       if (result.status === 200) {
-        toast.success('Login Successfull!', {position: toast.POSITION.TOP_CENTER});
+        toast.success('Login Successfull !', {position: toast.POSITION.TOP_CENTER});
         localStorage.setItem('token', result.data.token);
         props.history.push('/dashboard')
       }

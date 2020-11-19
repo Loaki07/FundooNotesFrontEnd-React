@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
-import NoteApis from "../services/NoteApis"
 import '../styles/displayNote.scss'
-// import UpdateNote from "./updateNote.jsx"
-
-const { getNotes } = new NoteApis();
-
+import UpdateNote from "./updateNote.jsx"
 
 const DisplayNote = (props) =>{
   const [ note, setNote ] = useState({
@@ -15,7 +11,8 @@ const DisplayNote = (props) =>{
     description: "",
   })
 
-  const { title, description } = props;
+  const { noteId, title, description } = props;
+
 
   const handleNoteHoverEnter = () => {
     setNote({ ...note, isNoteHover: !note.isNoteHover })
@@ -25,24 +22,21 @@ const DisplayNote = (props) =>{
     setNote({ ...note, isNoteHover: !note.isNoteHover })
   }
 
-  const showNoteCompletely = () => {
-    console.log("showingNote");
-    setNote({ ...note, isNoteOpen: true })
-  }
-
   return (
+    <>
       <div 
         className="card" 
         // style={{ width: "23rem" }}
-        onClick={showNoteCompletely}
         onMouseEnter={handleNoteHoverEnter}
         onMouseLeave={handleNoteHoverLeave}
       >
         <div className="card-body">
-          <h5 className="card-title">{title}</h5>
+          <h5 
+            className="card-title"
+          >{title}</h5>
           <p className="card-text">{description}</p>
             {
-              (note.isNoteHover && !note.isNoteOpen) && 
+              (note.isNoteHover) && 
               <div 
                 className="btn-group d-flex justify-content-around" 
                 role="group" 
@@ -68,6 +62,20 @@ const DisplayNote = (props) =>{
                   type="button" 
                   className="btn btn-sm"
                 ><i className="fas fa-archive"></i></button>
+                <button 
+                  type="button" 
+                  className="btn btn-sm"
+                  // onClick={showNoteCompletely}
+                  data-toggle="modal"
+                  data-target="#update-note"
+                  onClick={() => {
+                    setNote({...note, 
+                      noteId: noteId,
+                      title: title,
+                      description: description,
+                    })
+                  }}
+                ><i className="far fa-edit"></i></button>
 
                 <div 
                   className="btn-group" 
@@ -117,6 +125,14 @@ const DisplayNote = (props) =>{
           }
         </div>
       </div>
+      <div>
+        <UpdateNote 
+          noteId={note.noteId}
+          title={note.title}
+          description={note.description}
+        />
+      </div>
+    </>
   )
 }
 

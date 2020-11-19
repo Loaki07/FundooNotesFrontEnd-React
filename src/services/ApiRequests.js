@@ -1,4 +1,7 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+toast.configure();
 
 class ApiRequests {
   getHeadersObject = (token) => {
@@ -35,6 +38,14 @@ class ApiRequests {
     const headersObject = this.getHeadersObject(token);
     return axios
       .get(url, headersObject)
+      .then((res) => res)
+      .catch((error) => error);
+  };
+
+  putWithAuth = (url, data, token) => {
+    const headersObject = this.getHeadersObject(token);
+    return axios
+      .put(url, data, headersObject)
       .then((res) => res)
       .catch((error) => error);
   };

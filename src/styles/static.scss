@@ -24,3 +24,9 @@
   border-color: transparent;
   color: $link-color;
 }
+
+textarea {
+  outline: none;
+  border: none;
+  resize: none;
+}
