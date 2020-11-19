@@ -51,18 +51,10 @@ class UpdateNote extends Component {
 
 
 
-  // componentDidMount(prevProps, prevState, snapshot) {
-  //   if (this.props !== prevProps) {
-  //     this.setState({ 
-  //       noteId: this.props.noteId,
-  //       title: this.props.title,
-  //       description: this.props.description,
-  //     })
-  //   // }
-  //   // console.log(nextProps, "from updatenote");
-  //   console.log("Updating State", this.state);
-  //   // console.log("updating props");
-  // }
+   componentWillReceiveProps(nextProps) {
+    this.updateNoteProps(nextProps);
+    console.log("Updating Props in updateNote", this.state);
+  }
 
   handleChangeEvent = (event) => {
     this.setState({ [event.target.name]: event.target.value})
@@ -85,7 +77,7 @@ class UpdateNote extends Component {
   }
 
   render() {
-    console.log("Updating State from render", this.state);
+    // console.log("Updating State from render", this.state);
     return (
       <>
         <div
@@ -106,7 +98,7 @@ class UpdateNote extends Component {
                   className="modal-title" 
                   id="exampleModalLongTitle"
                   name="title"
-                  value={this.props.title}
+                  value={this.state.title}
                   onChange={this.handleChangeEvent}
                 ></textarea>
                 <button
@@ -123,7 +115,7 @@ class UpdateNote extends Component {
               <textarea 
                 className="modal-body"
                 name="description"
-                value={this.props.description}
+                value={this.state.description}
                 onChange={this.handleChangeEvent}
               >
               </textarea>

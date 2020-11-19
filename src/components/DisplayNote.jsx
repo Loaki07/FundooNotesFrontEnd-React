@@ -15,6 +15,14 @@ class DisplayNote extends Component {
     }
   }
 
+  componentDidMount() {
+    this.setState({ 
+      noteId: this.props.noteId,
+      title: this.props.title,
+      description: this.props.description,
+    })
+  }
+
   componentWillReceiveProps(nextProps) {
     if (this.props !== nextProps) {
       this.setState({ 
@@ -23,6 +31,7 @@ class DisplayNote extends Component {
         description: nextProps.description,
       })
     }
+    console.log("Updating Props in displayNote", this.state);
   }
 
   handleNoteHoverEnter = () => {
@@ -64,15 +73,15 @@ class DisplayNote extends Component {
           <div className="card-body">
             <p 
               className="card-title"
-              value={this.props.title}
+              value={this.state.title}
             >
-              {this.props.title}
+              {this.state.title}
             </p>
             <p 
               className="card-text"
-              value={this.props.description}
+              value={this.state.description}
             >
-              {this.props.description}
+              {this.state.description}
             </p>
               {
                 (this.state.isNoteHover) && 
@@ -157,11 +166,11 @@ class DisplayNote extends Component {
         <div>
           <UpdateNote 
             toggleNote={this.toggleUpdateNote}
-            noteState={this.props.isNoteOpen}
-            noteDetails={this.props.noteObject}
-            noteId={this.props.noteId}
-            title={this.props.title}
-            description={this.props.description}
+            noteState={this.state.isNoteOpen}
+            noteDetails={this.state.noteObject}
+            noteId={this.state.noteId}
+            title={this.state.title}
+            description={this.state.description}
           />
         </div>
       </>
