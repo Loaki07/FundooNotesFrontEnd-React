@@ -13,26 +13,28 @@ class DisplayNote extends Component {
       title: "",
       description: "",
     }
+    // this.handleNoteClick = this.handleNoteClick.bind(this)
   }
 
-  componentDidMount() {
-    this.setState({ 
-      noteId: this.props.noteId,
-      title: this.props.title,
-      description: this.props.description,
-    })
-  }
+  // componentDidMount() {
+  //   this.setState({ 
+  //     noteId: this.props.noteId,
+  //     title: this.props.title,
+  //     description: this.props.description,
+  //   })
+  //   console.log("componentdidMount displayNote", this.state);
+  // }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props !== nextProps) {
-      this.setState({ 
-        noteId: nextProps.noteId,
-        title: nextProps.title,
-        description: nextProps.description,
-      })
-    }
-    console.log("Updating Props in displayNote", this.state);
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (this.props !== nextProps) {
+  //     this.setState({ 
+  //       noteId: nextProps.noteId,
+  //       title: nextProps.title,
+  //       description: nextProps.description,
+  //     })
+  //   }
+  //   console.log("Updating Props in displayNote", this.state);
+  // }
 
   handleNoteHoverEnter = () => {
     this.setState({ ...this.state, isNoteHover: !this.state.isNoteHover })
@@ -43,15 +45,14 @@ class DisplayNote extends Component {
   }
 
 
-  handleNoteClick = (event, object) => {
-    console.log(object);
+  handleNoteClick = (event) => { 
     this.setState({
       noteObject: this.props.noteObject,
       noteId: this.props.noteId,
       title: this.props.title,
       description: this.props.description,
     })
-    console.log("Checking Note Click", this.state.noteObject);
+    console.log("Checking Note Click", this.state);
   }
 
   toggleUpdateNote = () => {
@@ -67,21 +68,24 @@ class DisplayNote extends Component {
           // style={{ width: "23rem" }}
           data-toggle="modal"
           data-target="#update-note"
+          onClick={this.handleNoteClick}
           onMouseEnter={this.handleNoteHoverEnter}
           onMouseLeave={this.handleNoteHoverLeave}
         >
           <div className="card-body">
             <p 
               className="card-title"
-              value={this.state.title}
+              name="noteTitle"
+              value={this.props.title}
             >
-              {this.state.title}
+              {this.props.title}
             </p>
             <p 
               className="card-text"
-              value={this.state.description}
+              name="noteDescription"
+              value={this.props.description}
             >
-              {this.state.description}
+              {this.props.description}
             </p>
               {
                 (this.state.isNoteHover) && 
@@ -163,16 +167,16 @@ class DisplayNote extends Component {
             }
           </div>
         </div>
-        <div>
+        {/* <div>
           <UpdateNote 
-            toggleNote={this.toggleUpdateNote}
-            noteState={this.state.isNoteOpen}
-            noteDetails={this.state.noteObject}
+            // toggleNote={this.toggleUpdateNote}
+            // noteState={this.state.isNoteOpen}
+            // noteDetails={this.state.noteObject}
             noteId={this.state.noteId}
             title={this.state.title}
             description={this.state.description}
           />
-        </div>
+        </div> */}
       </>
     )
   }

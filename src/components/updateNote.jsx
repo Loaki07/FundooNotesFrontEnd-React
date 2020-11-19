@@ -14,6 +14,8 @@ class UpdateNote extends Component {
       title: "",
       description: "",
     }
+    this.handleChangeEvent = this.handleChangeEvent.bind(this);
+    this.handleUpdatedNote = this.handleUpdatedNote.bind(this);
   }
 
   // static getDerivedStateFromProps(nextProps, prevState){
@@ -27,7 +29,15 @@ class UpdateNote extends Component {
   //  else return null;
   // }
 
-  
+  componentDidMount() {
+    this.setState({ 
+      noteId: this.props.noteId,
+      title: this.props.title,
+      description: this.props.description,
+    })
+    
+    // console.log("componentdidMount updateNote", this.state);
+  }
 
   updateNoteProps(nextProps) {
     if (this.props !== nextProps) {
@@ -41,23 +51,24 @@ class UpdateNote extends Component {
 
    titleHandler = (event) => {
     this.setState({ title: event.target.value})
-    console.log("changing title");
    }
 
    descriptionHandler= (event) => {
     this.setState({ description: event.target.value})
-    console.log("changing description");
    }
 
-
-
    componentWillReceiveProps(nextProps) {
-    this.updateNoteProps(nextProps);
+    // this.updateNoteProps(nextProps);
+    this.setState({ 
+      noteId: nextProps.noteId,
+      title: nextProps.title,
+      description: nextProps.description,
+    })
     console.log("Updating Props in updateNote", this.state);
   }
 
   handleChangeEvent = (event) => {
-    this.setState({ [event.target.name]: event.target.value})
+    this.setState({[event.target.name]: event.target.value})
   }
 
   handleUpdatedNote = (event) => {
@@ -77,6 +88,7 @@ class UpdateNote extends Component {
   }
 
   render() {
+    // console.log( "UpdateNoteProps", this.props);
     // console.log("Updating State from render", this.state);
     return (
       <>
@@ -95,12 +107,14 @@ class UpdateNote extends Component {
             <div className="modal-content">
               <div className="modal-header">
                 <textarea 
-                  className="modal-title" 
+                  className="modal-title title" 
                   id="exampleModalLongTitle"
                   name="title"
                   value={this.state.title}
-                  onChange={this.handleChangeEvent}
-                ></textarea>
+                  onChange={this.titleHandler}
+                >
+                  {/* {this.props.title} */}
+                </textarea>
                 <button
                 type="button"
                 className="close"
@@ -113,11 +127,12 @@ class UpdateNote extends Component {
                 </button>
               </div>
               <textarea 
-                className="modal-body"
+                className="modal-body description"
                 name="description"
                 value={this.state.description}
-                onChange={this.handleChangeEvent}
+                onChange={this.descriptionHandler}
               >
+                {/* {this.state.description} */}
               </textarea>
               <div 
                 className="modal-footer"

@@ -4,6 +4,7 @@ import Header from '../Header.jsx'
 import Sidebar from '../Sidebar.jsx'
 import DisplayNote from '../DisplayNote.jsx'
 import CreateNoteForm from '../CreateNoteForm.jsx'
+import UpdateNote from "../updateNote.jsx"
 import "../../styles/dashboard.scss"
 
 const { getNotes } = new NoteApis();
@@ -12,6 +13,7 @@ const Dashboard = () =>{
   const [ state, setState ] = useState({
     noteData: [
       {
+        noteId: "",
         title: "Note Title",
         description: "Note Description",
       }
@@ -44,14 +46,35 @@ const Dashboard = () =>{
             className="db-disp-notes-cont box2" 
           >
           { state.isDataReceived &&
-            state.noteData.reverse().map((note, index) => {
-               return (<DisplayNote 
-                  key={index}
-                  noteObject={note}
-                  noteId={note._id} 
-                  title={note.title} 
-                  description={note.description} 
-                />)
+            state.noteData.map((note, index) => {
+              
+               return (
+                 <div>
+                  <DisplayNote 
+                      key={index}
+                      noteObject={note}
+                      noteId={note._id} 
+                      title={note.title} 
+                      description={note.description} 
+                      handleClick={() => {
+                        // setState({
+                        //   noteId: note._id,
+                        //   title: note.title,
+                        //   description: note.description,
+                        // })
+                      }}
+                    />
+                     <UpdateNote 
+                        // key={index + 1}
+                        // toggleNote={this.toggleUpdateNote}
+                        // noteState={this.note.isNoteOpen}
+                        // noteDetails={this.note.noteObject}
+                        noteId={note._id}
+                        title={note.title}
+                        description={note.description}
+                      />
+                 </div>
+              )
             })
           }
           </div>
