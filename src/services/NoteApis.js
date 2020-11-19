@@ -17,7 +17,6 @@ class NoteApis {
 
   updateNote = (data, token, noteId) => {
     const url = process.env.REACT_APP_FUNDOO_API_URL + 'notes/:' + noteId;
-    console.log(url);
     return putWithAuth(url, data, token)
   }
 }

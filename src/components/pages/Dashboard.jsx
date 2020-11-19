@@ -24,6 +24,7 @@ const Dashboard = () =>{
     event.preventDefault();
     const token = localStorage.getItem('token')
     getNotes(token).then(result => {
+      console.log(result);  
       setState({ ...state, 
             isDataReceived: true,
             noteData: result.data.data})
@@ -46,6 +47,7 @@ const Dashboard = () =>{
             state.noteData.reverse().map((note, index) => {
                return (<DisplayNote 
                   key={index}
+                  noteObject={note}
                   noteId={note._id} 
                   title={note.title} 
                   description={note.description} 
