@@ -68,7 +68,7 @@ class DisplayNote extends Component {
           // style={{ width: "23rem" }}
           data-toggle="modal"
           data-target="#update-note"
-          onClick={this.handleNoteClick}
+          onClick={this.props.handleClick}
           onMouseEnter={this.handleNoteHoverEnter}
           onMouseLeave={this.handleNoteHoverLeave}
         >
@@ -172,9 +172,13 @@ class DisplayNote extends Component {
             // toggleNote={this.toggleUpdateNote}
             // noteState={this.state.isNoteOpen}
             // noteDetails={this.state.noteObject}
-            noteId={this.state.noteId}
-            title={this.state.title}
-            description={this.state.description}
+            show={this.props.handleShow}
+            onHide={
+              this.props.handleOnHide
+            }
+            noteId={this.props.noteId}
+            title={this.props.title}
+            description={this.props.description}
           />
         </div> */}
       </>

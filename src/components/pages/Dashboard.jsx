@@ -10,6 +10,7 @@ import "../../styles/dashboard.scss"
 const { getNotes } = new NoteApis();
 
 const Dashboard = () =>{
+  const [ showUpdateNote, setShowUpdateNote] = useState(false);
   const [ state, setState ] = useState({
     noteData: [
       {
@@ -51,24 +52,30 @@ const Dashboard = () =>{
                return (
                  <div>
                   <DisplayNote 
+                      variant="primary"
                       key={index}
                       noteObject={note}
                       noteId={note._id} 
                       title={note.title} 
                       description={note.description} 
                       handleClick={() => {
-                        // setState({
-                        //   noteId: note._id,
-                        //   title: note.title,
-                        //   description: note.description,
-                        // })
+                        console.log("modal should pop up");
+                        setShowUpdateNote(true)
                       }}
+                      // handleShow={showUpdateNote}
+                      // handleOnHide={() => {
+                      //   setShowUpdateNote(false)
+                      // }}
                     />
                      <UpdateNote 
                         // key={index + 1}
                         // toggleNote={this.toggleUpdateNote}
                         // noteState={this.note.isNoteOpen}
                         // noteDetails={this.note.noteObject}
+                        show={showUpdateNote}
+                        onHide={() => {
+                          setShowUpdateNote(false)
+                        }}
                         noteId={note._id}
                         title={note.title}
                         description={note.description}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Modal, Button } from 'react-bootstrap';
 import NoteApis from "../services/NoteApis"
 import {toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
@@ -91,67 +92,94 @@ class UpdateNote extends Component {
     // console.log( "UpdateNoteProps", this.props);
     // console.log("Updating State from render", this.state);
     return (
-      <>
-        <div
-        className="modal fade"
-        id="update-note"
-        tabIndex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true"
-        >
-          <div
-          className="modal-dialog modal-dialog-centered"
-          role="document"
+      <Modal
+      {...this.props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            <textarea
+              value={this.state.title}
+              onChange={this.titleHandler}
+            >
+            </textarea>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <textarea
+            value={this.state.title}
+            onChange={this.descriptionHandler}
           >
-            <div className="modal-content">
-              <div className="modal-header">
-                <textarea 
-                  className="modal-title title" 
-                  id="exampleModalLongTitle"
-                  name="title"
-                  value={this.state.title}
-                  onChange={this.titleHandler}
-                >
-                  {/* {this.props.title} */}
-                </textarea>
-                <button
-                type="button"
-                className="close"
-                data-dismiss="modal"
-                aria-label="Close"
-                >
-                  <span 
-                    aria-hidden="true"
-                  >&times;</span>
-                </button>
-              </div>
-              <textarea 
-                className="modal-body description"
-                name="description"
-                value={this.state.description}
-                onChange={this.descriptionHandler}
-              >
-                {/* {this.state.description} */}
-              </textarea>
-              <div 
-                className="modal-footer"
-              >
-                <button
-                type="button"
-                className="btn btn-secondary"
-                data-dismiss="modal"
-                >Close</button>
-                <button
-                type="button"
-                className="btn btn-primary"
-                onClick={this.handleUpdatedNote}
-                >Save changes</button>
-              </div>
-            </div>
-          </div>
-        </div>        
-     </> 
+          </textarea>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={this.props.onHide}>Close</Button>
+          <Button onClick={this.handleUpdatedNote}>Save Changes</Button>
+        </Modal.Footer>
+    </Modal>
+    //   <>
+    //     <div
+    //     className="modal fade"
+    //     id="update-note"
+    //     tabIndex="-1"
+    //     role="dialog"
+    //     aria-labelledby="exampleModalCenterTitle"
+    //     aria-hidden="true"
+    //     >
+    //       <div
+    //       className="modal-dialog modal-dialog-centered"
+    //       role="document"
+    //       >
+    //         <div className="modal-content">
+    //           <div className="modal-header">
+    //             <textarea 
+    //               className="modal-title title" 
+    //               id="exampleModalLongTitle"
+    //               name="title"
+    //               value={this.state.title}
+    //               onChange={this.titleHandler}
+    //             >
+    //               {/* {this.props.title} */}
+    //             </textarea>
+    //             <button
+    //             type="button"
+    //             className="close"
+    //             data-dismiss="modal"
+    //             aria-label="Close"
+    //             >
+    //               <span 
+    //                 aria-hidden="true"
+    //               >&times;</span>
+    //             </button>
+    //           </div>
+    //           <textarea 
+    //             className="modal-body description"
+    //             name="description"
+    //             value={this.state.description}
+    //             onChange={this.descriptionHandler}
+    //           >
+    //             {/* {this.state.description} */}
+    //           </textarea>
+    //           <div 
+    //             className="modal-footer"
+    //           >
+    //             <button
+    //             type="button"
+    //             className="btn btn-secondary"
+    //             data-dismiss="modal"
+    //             >Close</button>
+    //             <button
+    //             type="button"
+    //             className="btn btn-primary"
+    //             onClick={this.handleUpdatedNote}
+    //             >Save changes</button>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>        
+    //  </> 
     )
   }
 }
